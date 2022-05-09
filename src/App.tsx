@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Home from "./onepirate/Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Privacy from "./onepirate/Privacy";
 import SignIn from "./onepirate/SignIn";
 import SignUp from "./onepirate/SignUp";
@@ -11,28 +11,16 @@ import Terms from "./onepirate/Terms";
 function App() {
   return (
     <React.Fragment>
-      <Router>
-        <Switch>
-          <Route path="/forgot-password">
-            <ForgotPassword />
-          </Route>
-          <Route path="/sign-up">
-            <SignUp />
-          </Route>
-          <Route path="/sign-in">
-            <SignIn />
-          </Route>
-          <Route path="/privacy">
-            <Privacy />
-          </Route>
-          <Route path="/terms">
-            <Terms />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
     </React.Fragment>
   );
 }
